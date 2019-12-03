@@ -1,0 +1,14 @@
+$primary-bold: "Biotif-Bold";
+$primary-light: "Biotif-Light";
+
+@font-face {
+  font-family: $primary-bold;
+  src: url("./fonts/Biotif-Bold.ttf") format("woff"),
+    url("./fonts/Biotif-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: $primary-light;
+  src: url("./fonts/Biotif-Light.ttf") format("woff"),
+    url("./fonts/Biotif-Light.ttf") format("truetype");
+}
