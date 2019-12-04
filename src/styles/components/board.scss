@@ -1,0 +1,101 @@
+.container {
+  height: 60%;
+  display: flex;
+
+  .score {
+    &.mod-mobile {
+      display: none;
+    }
+  }
+
+  .board {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 80vw;
+    max-width: 75vh;
+    height: 80vw;
+    max-height: 75vh;
+
+    .card {
+      flex: 1 0 calc(25% - 10px);
+      margin: 5px;
+      background: #e9d2ff;
+      border-radius: 10px;
+    }
+
+    .card:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+}
+
+@include mobileView() {
+  .container {
+    flex-direction: column;
+    height: 70%;
+    .score {
+      text-align: center;
+      font-family: $primary-bold;
+      font-size: 4rem;
+      margin: 0;
+
+      &.mod-mobile {
+        display: block;
+      }
+    }
+
+    .board {
+      width: 94vw;
+      height: 94vw;
+    }
+  }
+}
+
+@include mediumScreen() {
+  .container {
+    height: 70%;
+
+    .score {
+      font-size: 7vw;
+    }
+
+    .board {
+      width: 76vw;
+      height: 76vw;
+    }
+  }
+}
+
+// Landscape View
+
+@include mobileViewLandscape() {
+  .score {
+    &.mod-mobile {
+      display: none !important;
+    }
+  }
+}
+
+@include smallScreenLandscape() {
+  .container {
+    height: 78%;
+  }
+}
+
+@include mediumScreenLandscape() {
+  .container {
+    height: 75%;
+
+    .score {
+      font-size: 5vw;
+    }
+
+    .board {
+      width: 47vw;
+      height: 47vw;
+    }
+  }
+}

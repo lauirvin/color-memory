@@ -1,0 +1,261 @@
+header {
+  display: flex;
+  align-items: center;
+  overflow: visible;
+  height: 20%;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-family: $primary-bold;
+  color: $font-color;
+
+  li {
+    list-style-type: none;
+  }
+
+  .logo {
+    width: 30%;
+    font-size: 5rem;
+    font-family: $primary-light;
+
+    span {
+      font-family: $primary-bold;
+    }
+
+    .C {
+      color: $red;
+    }
+    .O {
+      color: $orange;
+    }
+    .L {
+      color: $dark-yellow;
+    }
+    .Os {
+      color: $green;
+    }
+    .R {
+      color: $blue;
+    }
+  }
+
+  .score {
+    font-size: 6rem;
+    width: 40%;
+    text-align: center;
+
+    &.mod-mobile {
+      display: none;
+    }
+  }
+
+  .buttons {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 6px;
+
+    button {
+      background: white;
+      padding: 0;
+      border: 0;
+      border-radius: 10px;
+      width: 23rem;
+      height: 4.5rem;
+      outline: none;
+      font-family: $primary-bold;
+      font-size: 1.6rem;
+      box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+
+      span {
+        position: relative;
+        top: 2px;
+      }
+    }
+
+    .highscores {
+      color: $done;
+      margin-bottom: 1rem;
+    }
+
+    .restart {
+      color: $close;
+    }
+  }
+}
+
+@include mobileView() {
+  header {
+    flex-direction: column;
+    height: 30%;
+    margin: 0;
+
+    .buttons {
+      width: auto;
+      flex-direction: row;
+      padding: 0;
+      width: 100%;
+      align-items: center;
+      justify-content: space-evenly;
+      height: 3.7rem;
+      margin-top: 1rem;
+
+      button {
+        width: 40%;
+        font-size: 4vw;
+        border-radius: 7px;
+        height: 5.5vh;
+
+        span {
+          top: 2px;
+        }
+      }
+
+      .highscores {
+        margin: 0;
+      }
+    }
+
+    .logo {
+      width: auto;
+      font-size: 13vw;
+      margin-top: 3rem;
+    }
+
+    .score {
+      display: none;
+    }
+  }
+}
+
+@include mediumScreen() {
+  header {
+    height: 30%;
+    .buttons {
+      height: 3.7rem;
+      justify-content: center;
+
+      button {
+        font-size: 2.7vw;
+        height: 5.2vh;
+        width: 32%;
+        border-radius: 10px;
+
+        span {
+          top: 2px;
+        }
+      }
+
+      .highscores {
+        margin-right: 4rem;
+      }
+    }
+
+    .logo {
+      font-size: 10vw;
+      margin-top: 5rem;
+    }
+  }
+}
+
+// Landscape View
+@include mobileViewLandscape() {
+  header {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .buttons {
+      margin: 0;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      button {
+        width: 14rem;
+        border-radius: 7px;
+
+        span {
+          top: 2px;
+        }
+      }
+
+      .highscores {
+        margin-right: 0;
+      }
+    }
+
+    .logo {
+      width: 30%;
+      font-size: 3rem;
+      margin-top: 0;
+    }
+
+    .score {
+      width: 40%;
+      font-size: 3.8rem;
+      display: block;
+    }
+  }
+}
+
+@include smallScreenLandscape() {
+  header {
+    height: 22%;
+
+    .buttons {
+      width: 30%;
+      height: 80%;
+
+      button {
+        height: 45%;
+        font-size: 1.2rem;
+
+        span {
+          top: 2px;
+        }
+      }
+    }
+
+    .logo {
+      font-size: 2.5rem;
+    }
+
+    .score {
+      font-size: 3.3rem;
+    }
+  }
+}
+
+@include mediumScreenLandscape() {
+  header {
+    height: 25%;
+    margin-left: 3rem;
+    margin-right: 3rem;
+
+    .buttons {
+      width: 30%;
+      height: 50%;
+
+      button {
+        height: 43%;
+        font-size: 1.5vw;
+        width: 60%;
+
+        span {
+          top: 2px;
+        }
+      }
+    }
+
+    .logo {
+      font-size: 3.5vw;
+    }
+
+    .score {
+      font-size: 4.5vw;
+    }
+  }
+}
