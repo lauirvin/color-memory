@@ -1,24 +1,13 @@
 import React, { Fragment } from "react";
 
-const Card = () => {
+const Card = ({ color }) => {
+  const handleClick = card => {
+    console.log(card);
+  };
+
   return (
     <Fragment>
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
+      <div onClick={handleClick} className="card"></div>
     </Fragment>
   );
 };
