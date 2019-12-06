@@ -36,13 +36,15 @@ const Highscores = ({ open, closeWindow }) => {
                 <div className="col mod-score">Score</div>
               </div>
               <hr />
-              {highscores.map((user, rank) => (
-                <div className="row mod-data" key={rank}>
-                  <div className="col mod-rank">{rank + 1}</div>
-                  <div className="col mod-name">{user.name}</div>
-                  <div className="col mod-score">{user.score}</div>
-                </div>
-              ))}
+              <div className="rank-data">
+                {highscores.map((user, rank) => (
+                  <div className="row mod-data" key={rank}>
+                    <div className="col mod-rank">{rank + 1}</div>
+                    <div className="col mod-name">{user.name}</div>
+                    <div className="col mod-score">{user.score}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </Fragment>
         ) : (
