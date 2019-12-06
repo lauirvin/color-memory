@@ -8,6 +8,7 @@ const App = () => {
   const [flipped, setFlipped] = useState([]);
   const [solved, setSolved] = useState([]);
   const [disabled, setDisabled] = useState(false);
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     const generateCards = () => {
@@ -48,9 +49,11 @@ const App = () => {
       setFlipped([flipped[0], id]);
       if (isMatch(id)) {
         setSolved([...solved, flipped[0], id]);
+        setScore(score + 5);
         resetCards();
       } else {
         noMatch();
+        setScore(score - 1);
       }
     }
   };
@@ -75,13 +78,14 @@ const App = () => {
 
   return (
     <Fragment>
-      <Header />
+      <Header score={score} />
       <Board
         cards={cards}
         flipped={flipped}
         handleClick={handleClick}
         disabled={disabled}
         solved={solved}
+        score={score}
       />
     </Fragment>
   );
