@@ -56,7 +56,7 @@ const App = () => {
   };
 
   const noMatch = () => {
-    setTimeout(resetCards, 1000);
+    setTimeout(resetCards, 800);
   };
 
   const resetCards = () => {
