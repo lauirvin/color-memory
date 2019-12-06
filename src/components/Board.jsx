@@ -4,7 +4,7 @@ import Card from "./Card";
 const Board = ({ cards, flipped, handleClick, disabled, solved, score }) => {
   return (
     <div className="container">
-      <h1 className="score mod-mobile">SCORE: {score}}</h1>
+      <h1 className="score mod-mobile">SCORE: {score}</h1>
       <div className="board">
         {cards.map((card, index) => (
           <Card

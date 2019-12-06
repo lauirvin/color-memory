@@ -11,23 +11,23 @@ const App = () => {
   const [score, setScore] = useState(0);
 
   useEffect(() => {
-    const generateCards = () => {
-      const colors = ["#FE9992", "#FFF9A5", "#C6E3C9", "#AFE3E3"];
-      const cardList = shuffle(duplicateElements(colors, 4));
-
-      let finalCards = [];
-      cardList.forEach((color, index) => {
-        finalCards.push({
-          id: index,
-          color: color
-        });
-      });
-
-      setCards(finalCards);
-    };
-
     generateCards();
   }, []);
+
+  const generateCards = () => {
+    const colors = ["#FE9992", "#FFF9A5", "#C6E3C9", "#AFE3E3"];
+    const cardList = shuffle(duplicateElements(colors, 4));
+
+    let finalCards = [];
+    cardList.forEach((color, index) => {
+      finalCards.push({
+        id: index,
+        color: color
+      });
+    });
+
+    setCards(finalCards);
+  };
 
   const duplicateElements = (array, times) => {
     return array.reduce((res, current) => {
@@ -67,7 +67,9 @@ const App = () => {
     setDisabled(false);
   };
 
-  const sameCardClicked = id => flipped.includes(id);
+  const sameCardClicked = id => {
+    flipped.includes(id);
+  };
 
   const isMatch = id => {
     const clickedCard = cards.find(card => card.id === id);
@@ -76,9 +78,19 @@ const App = () => {
     return flippedCard.color === clickedCard.color;
   };
 
+  const restartCards = () => {
+    setCards([]);
+    setFlipped([]);
+    setSolved([]);
+    setDisabled(false);
+    setScore(0);
+
+    generateCards();
+  };
+
   return (
     <Fragment>
-      <Header score={score} />
+      <Header score={score} restartCards={restartCards} />
       <Board
         cards={cards}
         flipped={flipped}

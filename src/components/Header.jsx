@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = ({ score }) => {
+const Header = ({ score, restartCards }) => {
   return (
     <header>
       <li className="logo">
@@ -15,7 +15,7 @@ const Header = ({ score }) => {
         <button className="highscores">
           <span>HIGHSCORES</span>
         </button>
-        <button className="restart">
+        <button onClick={restartCards} className="restart">
           <span>RESTART</span>
         </button>
       </li>
