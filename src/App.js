@@ -38,17 +38,17 @@ const App = () => {
   };
 
   const handleClick = id => {
-    setDisabled(true);
     if (flipped.length === 0) {
       setFlipped([id]);
       setDisabled(false);
     } else {
-      if (sameCardClicked(id)) return;
       setFlipped([flipped[0], id]);
       if (isMatch(id)) {
         setSolved([...solved, flipped[0], id]);
         setScore(score + 5);
         resetCards();
+      } else if (isMatch(id) === 0) {
+        sameCardClicked(id);
       } else {
         noMatch();
         setScore(score - 1);
@@ -60,20 +60,26 @@ const App = () => {
     setTimeout(resetCards, 500);
   };
 
+  const sameCardClicked = id => {
+    setFlipped([flipped[0], id]);
+  };
+
   const resetCards = () => {
     setFlipped([]);
     setDisabled(false);
-  };
-
-  const sameCardClicked = id => {
-    flipped.includes(id);
   };
 
   const isMatch = id => {
     const clickedCard = cards.find(card => card.id === id);
     const flippedCard = cards.find(card => flipped[0] === card.id);
 
-    return flippedCard.color === clickedCard.color;
+    if (clickedCard.id === flippedCard.id) {
+      return 0;
+    } else if (flippedCard.color === clickedCard.color) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   const restartCards = () => {
