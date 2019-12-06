@@ -4,12 +4,17 @@ import Popup from "reactjs-popup";
 const Register = ({ score, complete, restartCards }) => {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
+  const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       setOpen(complete);
     }, 800);
   }, [complete]);
+
+  useEffect(() => {
+    name.length > 0 ? setDisabled(false) : setDisabled(true);
+  }, [name]);
 
   const closeWindow = () => {
     setOpen(false);
@@ -54,7 +59,7 @@ const Register = ({ score, complete, restartCards }) => {
           <button className="close" onClick={closeWindow}>
             <span>CLOSE</span>
           </button>
-          <button className="done" onClick={submitScore}>
+          <button disabled={disabled} className="done" onClick={submitScore}>
             <span>DONE</span>
           </button>
         </div>

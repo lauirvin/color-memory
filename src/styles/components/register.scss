@@ -45,6 +45,10 @@
 
       &.done {
         color: $done;
+
+        &:disabled {
+          color: $disabled !important;
+        }
       }
     }
   }
