@@ -8,7 +8,7 @@ const Register = ({ score, complete, restartCards }) => {
   useEffect(() => {
     setTimeout(() => {
       setOpen(complete);
-    }, 750);
+    }, 800);
   }, [complete]);
 
   const closeWindow = () => {
