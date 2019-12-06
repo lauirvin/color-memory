@@ -17,5 +17,21 @@ html {
     #root {
       height: 100%;
     }
+
+    h1 {
+      font-family: $primary-bold;
+      font-size: 3.7rem;
+      color: $header;
+      padding-top: 1rem;
+      margin: 1rem;
+    }
+
+    h2 {
+      font-family: $primary-bold;
+      font-size: 2.5rem;
+      color: $sub-header;
+      padding-top: 1rem;
+      margin: 1.5rem;
+    }
   }
 }

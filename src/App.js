@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import "./styles/styles.scss";
 import Header from "./components/Header";
 import Board from "./components/Board";
+import Register from "./components/Register";
 
 const App = () => {
   const [cards, setCards] = useState([]);
@@ -9,10 +10,17 @@ const App = () => {
   const [solved, setSolved] = useState([]);
   const [disabled, setDisabled] = useState(false);
   const [score, setScore] = useState(0);
+  const [complete, setComplete] = useState(false);
 
   useEffect(() => {
     generateCards();
   }, []);
+
+  useEffect(() => {
+    if (solved.length === 16) {
+      setComplete(true);
+    }
+  }, [solved]);
 
   const generateCards = () => {
     const colors = ["#FE9992", "#FFF9A5", "#C6E3C9", "#AFE3E3"];
@@ -84,12 +92,14 @@ const App = () => {
     setSolved([]);
     setDisabled(false);
     setScore(0);
+    setComplete(false);
 
     generateCards();
   };
 
   return (
     <Fragment>
+      <Register score={score} complete={complete} restartCards={restartCards} />
       <Header score={score} restartCards={restartCards} />
       <Board
         cards={cards}
