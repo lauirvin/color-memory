@@ -1,14 +1,12 @@
-import React, { Fragment } from "react";
+import React from "react";
 
-const Card = ({ color }) => {
-  const handleClick = card => {
-    console.log(card);
-  };
-
+const Card = ({ disabled, handleClick, id, flipped, solved, back, color }) => {
   return (
-    <Fragment>
-      <div onClick={handleClick} className="card"></div>
-    </Fragment>
+    <div
+      className={`card ${flipped ? "flipped" : ""}`}
+      onClick={() => (disabled ? null : handleClick(id))}
+      style={flipped || solved ? { background: color } : { background: back }}
+    ></div>
   );
 };
 

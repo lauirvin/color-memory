@@ -1,52 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Card from "./Card";
 
-const Board = () => {
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    let cardList = [
-      {
-        name: "red",
-        color: "#FE9992"
-      },
-      {
-        name: "yellow",
-        color: "#FFF9A5"
-      },
-      {
-        name: "green",
-        color: "#C6E3C9"
-      },
-      {
-        name: "blue",
-        color: "#AFE3E3"
-      }
-    ];
-
-    const duplicateElements = (array, times) => {
-      return array.reduce((res, current) => {
-        return res.concat(Array(times).fill(current));
-      }, []);
-    };
-
-    const shuffle = array => {
-      return array.sort(() => Math.random() - 0.5);
-    };
-
-    cardList = shuffle(duplicateElements(cardList, 4));
-
-    setCards(cardList);
-  }, []);
-
-  console.log(cards);
-
+const Board = ({ cards, flipped, handleClick, disabled, solved }) => {
   return (
     <div className="container">
       <h1 className="score mod-mobile">SCORE: 51</h1>
       <div className="board">
-        {cards.map((card, i) => (
-          <Card key={i} color={card.color} />
+        {cards.map((card, index) => (
+          <Card
+            key={index}
+            id={index}
+            color={card.color}
+            back={"#FFFFFF"}
+            flipped={flipped.includes(index)}
+            solved={solved.includes(card.id)}
+            handleClick={() => handleClick(index)}
+            disabled={disabled || solved.includes(card.id)}
+          />
         ))}
       </div>
     </div>
