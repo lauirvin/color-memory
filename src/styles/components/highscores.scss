@@ -1,0 +1,67 @@
+.highscores-window {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-right: 4rem;
+  margin-left: 4rem;
+
+  .table {
+    margin-bottom: 3rem;
+
+    hr {
+      margin-bottom: 2rem;
+    }
+
+    .row {
+      margin-top: 1rem;
+      margin-right: 2rem;
+      margin-left: 2rem;
+      color: $table;
+      font-size: 1.9rem;
+      font-family: $primary-bold;
+      display: flex;
+
+      &.mod-data {
+          margin-top: 0.7rem;
+      }
+
+      .col {
+        display: flex;
+        justify-content: center;
+
+        &.mod-rank {
+          width: 20%;
+        }
+
+        &.mod-name {
+          width: 60%;
+        }
+
+        &.mod-score {
+          width: 20%;
+        }
+      }
+    }
+  }
+
+  .unavailable {
+    h2 {
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  button {
+    height: 3.8rem;
+    align-self: center;
+    &.close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28%;
+      font-size: 1.7rem;
+      color: $close;
+      margin-bottom: 2rem;
+    }
+  }
+}

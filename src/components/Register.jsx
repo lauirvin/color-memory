@@ -40,7 +40,7 @@ const Register = ({ score, complete, restartCards }) => {
 
   return (
     <Popup open={open} closeOnDocumentClick={false}>
-      <div className="register">
+      <div className="register-window">
         <h1>YOU SCORED: {score}</h1>
         <hr />
         <h2>Enter your name below:</h2>

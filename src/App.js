@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState, useCallback } from "react";
 import "./styles/styles.scss";
 import Header from "./components/Header";
 import Board from "./components/Board";
@@ -12,17 +12,7 @@ const App = () => {
   const [score, setScore] = useState(0);
   const [complete, setComplete] = useState(false);
 
-  useEffect(() => {
-    generateCards();
-  }, []);
-
-  useEffect(() => {
-    if (solved.length === 16) {
-      setComplete(true);
-    }
-  }, [solved]);
-
-  const generateCards = () => {
+  const generateCards = useCallback(() => {
     const colors = ["#FE9992", "#FFF9A5", "#C6E3C9", "#AFE3E3"];
     const cardList = shuffle(duplicateElements(colors, 4));
 
@@ -35,7 +25,7 @@ const App = () => {
     });
 
     setCards(finalCards);
-  };
+  }, []);
 
   const duplicateElements = (array, times) => {
     return array.reduce((res, current) => {
@@ -96,6 +86,16 @@ const App = () => {
 
     generateCards();
   };
+
+  useEffect(() => {
+    generateCards();
+  }, [generateCards]);
+
+  useEffect(() => {
+    if (solved.length === 16) {
+      setComplete(true);
+    }
+  }, [solved]);
 
   return (
     <Fragment>

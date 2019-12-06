@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import Highscores from "./Highscores";
 
 const Header = ({ score, restartCards }) => {
+  const [open, setOpen] = useState(false);
+
+  const openHighScores = () => {
+    setOpen(true);
+  };
+
+  const closeWindow = () => {
+    setOpen(false);
+  };
+
   return (
     <header>
+      <Highscores open={open} closeWindow={closeWindow} />
       <li className="logo">
         <span className="C">C</span>
         <span className="O">O</span>
@@ -12,7 +24,7 @@ const Header = ({ score, restartCards }) => {
       </li>
       <li className="score">SCORE: {score}</li>
       <li className="buttons">
-        <button className="highscores">
+        <button onClick={openHighScores} className="highscores">
           <span>HIGHSCORES</span>
         </button>
         <button onClick={restartCards} className="restart">
