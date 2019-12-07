@@ -13,8 +13,8 @@ const App = () => {
   const [complete, setComplete] = useState(false);
 
   const generateCards = useCallback(() => {
-    const colors = ["#FE9992", "#FFF9A5", "#C6E3C9", "#AFE3E3"];
-    const cardList = shuffle(duplicateElements(colors, 4));
+    const colors = ["#FE9992", "#FFF9A5", "#C6E3C9", "#AFE3E3", "#ECC6FF", "#FFD38C", "#FFE0E1", "#A5BDFF"];
+    const cardList = shuffle(duplicateElements(colors, 2));
 
     let finalCards = [];
     cardList.forEach((color, index) => {
