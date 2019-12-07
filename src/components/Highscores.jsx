@@ -6,20 +6,21 @@ const Highscores = ({ open, closeWindow }) => {
   const [available, setAvailability] = useState();
 
   useEffect(() => {
-    const existingScores = localStorage.getItem("highscores");
+    const existingScores = localStorage.getItem("highscores"); // Fetch score data from localStorage
 
     if (existingScores === null) {
       setHighscores([]);
-      setAvailability(false);
+      setAvailability(false); // If score does not exist, change state to show "Complete a game to register your score!" message
     } else {
       let allScores = JSON.parse(existingScores);
 
+      // Sort score by descending order
       allScores.sort((a, b) => {
         return b.score - a.score;
       });
 
       setHighscores(allScores);
-      setAvailability(true);
+      setAvailability(true); // Shows score table conditionally if there is existing score
     }
   }, [open]);
 

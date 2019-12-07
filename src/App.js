@@ -13,8 +13,8 @@ const App = () => {
   const [complete, setComplete] = useState(false);
 
   const generateCards = useCallback(() => {
-    const colors = ["#FE9992", "#FFF9A5", "#C6E3C9", "#AFE3E3", "#ECC6FF", "#FFD38C", "#FFE0E1", "#A5BDFF"];
-    const cardList = shuffle(duplicateElements(colors, 2));
+    const colors = ["#FE9992", "#FFF9A5", "#C6E3C9", "#AFE3E3", "#ECC6FF", "#FFD38C", "#FFE0E1", "#A5BDFF"]; // Card colors
+    const cardList = shuffle(duplicateElements(colors, 2)); // Shuffle and generate pairs of cards
 
     let finalCards = [];
     cardList.forEach((color, index) => {
@@ -73,12 +73,12 @@ const App = () => {
     const clickedCard = cards.find(card => card.id === id);
     const flippedCard = cards.find(card => flipped[0] === card.id);
 
-    if (clickedCard.id === flippedCard.id) {
+    if (clickedCard.id === flippedCard.id) { // Check if same card clicked
       return 0;
     } else if (flippedCard.color === clickedCard.color) {
-      return true;
+      return true; // Match!
     } else {
-      return false;
+      return false; // Not match
     }
   };
 

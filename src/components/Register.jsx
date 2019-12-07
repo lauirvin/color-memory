@@ -9,16 +9,16 @@ const Register = ({ score, complete, restartCards }) => {
   useEffect(() => {
     setTimeout(() => {
       setOpen(complete);
-    }, 800);
+    }, 800); // Time to open the register window after completing the game
   }, [complete]);
 
   useEffect(() => {
-    name.length > 0 ? setDisabled(false) : setDisabled(true);
+    name.length > 0 ? setDisabled(false) : setDisabled(true); // Disable/Enable button conditionally - if input is empty
   }, [name]);
 
   const closeWindow = () => {
     setOpen(false);
-    restartCards();
+    restartCards(); // Restarts game if user chooses not to register their score
   };
 
   const userName = e => {
@@ -33,11 +33,11 @@ const Register = ({ score, complete, restartCards }) => {
     };
 
     if (highscores === null) {
-      localStorage.setItem("highscores", JSON.stringify([currentScore]));
+      localStorage.setItem("highscores", JSON.stringify([currentScore])); // Creates highscore data in localStorage if users score does not exist
     } else {
       let allScores = JSON.parse(highscores);
-      allScores.push(currentScore);
-      localStorage.setItem("highscores", JSON.stringify(allScores));
+      allScores.push(currentScore); // Adds score to score list
+      localStorage.setItem("highscores", JSON.stringify(allScores)); // Updates localStorage data with newly added score data
     }
 
     closeWindow();
