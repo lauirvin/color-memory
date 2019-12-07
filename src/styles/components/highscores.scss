@@ -71,4 +71,28 @@
   }
 }
 
+@include mobileView() {
+  .highscores-window {
+    margin-right: 1rem;
+    margin-left: 1rem;
 
+    button {
+      &.close {
+        width: 40%;
+      }
+    }
+  }
+}
+
+@include mobileViewLandscape() {
+  .highscores-window {
+    margin-right: 2rem;
+    margin-left: 2rem;
+
+    button {
+      &.close {
+        width: 25%;
+      }
+    }
+  }
+}

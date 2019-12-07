@@ -4,6 +4,9 @@ html {
   height: 100%;
   user-select: none;
   background: $background;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // Disable button touch highlight
+  overflow: hidden; // Disable scrolling
+  position: fixed; // Disable scrolling
 
   body {
     background: $background;
@@ -17,5 +20,18 @@ html {
     #root {
       height: 100%;
     }
+  }
+}
+
+input[type="text"] {
+  // Remove default browser styling (Safari)
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  appearance: none;
+}
+
+@include extraSmallScreen() {
+  html {
+    font-size: 55%;
   }
 }

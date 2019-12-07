@@ -53,3 +53,28 @@
     }
   }
 }
+
+@include mobileView() {
+  .register-window {
+    margin-right: 2rem;
+    margin-left: 2rem;
+
+    input {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .buttons {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+@include mobileViewLandscape() {
+  .register-window {
+    .buttons {
+      width: 65%;
+    }
+  }
+}

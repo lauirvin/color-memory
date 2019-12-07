@@ -3,6 +3,7 @@
   display: flex;
 
   .score {
+    color: $font-color;
     &.mod-mobile {
       display: none;
     }

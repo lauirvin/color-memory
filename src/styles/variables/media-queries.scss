@@ -40,6 +40,13 @@
   }
 }
 
+/* iPhone SE Size */
+@mixin extraSmallScreen() {
+  @media (max-width: 320px) {
+    @content;
+  }
+}
+
 @mixin mobileView() {
   @include smallScreen() {
     @content;
